@@ -216,3 +216,4 @@ terraform destroy
 ## License
 
 MIT License - see LICENSE file for details
+# Medusa ECS Deployment

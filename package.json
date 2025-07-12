@@ -1,0 +1,16 @@
+{
+  "name": "medusa-ecs-app",
+  "version": "1.0.0",
+  "description": "Medusa ECS deployment test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'Build completed'"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

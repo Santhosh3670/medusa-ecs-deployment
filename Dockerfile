@@ -1,25 +1,15 @@
-# Use the official Medusa image as base
-FROM medusajs/medusa:latest
+FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app/medusa
+WORKDIR /app
 
-# Copy package files if you have custom dependencies
-# COPY package.json package-lock.json ./
+COPY package*.json ./
+RUN npm install
 
-# Install any additional dependencies
-# RUN npm install
+COPY . .
 
-# Copy custom configuration or plugins if needed
-# COPY medusa-config.js ./
-# COPY plugins/ ./plugins/
-
-# Expose the port
 EXPOSE 9000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-  CMD curl -f http://localhost:9000/health || exit 1
+ENV NODE_ENV=production
+ENV PORT=9000
 
-# Start the application
 CMD ["npm", "start"]
